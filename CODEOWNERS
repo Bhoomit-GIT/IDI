@@ -5,7 +5,8 @@
 /docs/  @AaryanKodmalwar
 
 # Frontend team for JavaScript files
-*.js .html    @MilindBhakte
+*.js    @MilindBhakte
+*.html  @MilindBhakte
 
 # Backend team for /api/ directory
 /api/   @Bhoomit-GIT
