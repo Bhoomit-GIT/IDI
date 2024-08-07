@@ -1,11 +1,11 @@
 # All files in the repository
-Bhoomit_GIT
+*    @Bhoomit_GIT
 
 # Documentation team for /docs/ directory
-/docs/  @documentation-team
+/docs/  @AaryanKodmalwar
 
 # Frontend team for JavaScript files
 *.js    @MilindBhakte
 
 # Backend team for /api/ directory
-/api/   @backend-team
+/api/   @Bhoomit-GIT
