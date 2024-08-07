@@ -1,0 +1,11 @@
+# All files in the repository
+*       @username1 @username2
+
+# Documentation team for /docs/ directory
+/docs/  @documentation-team
+
+# Frontend team for JavaScript files
+*.js    @frontend-team
+
+# Backend team for /api/ directory
+/api/   @backend-team
