@@ -5,7 +5,7 @@ Bhoomit_GIT
 /docs/  @documentation-team
 
 # Frontend team for JavaScript files
-*.js    @frontend-team
+*.js    @MilindBhakte
 
 # Backend team for /api/ directory
 /api/   @backend-team
