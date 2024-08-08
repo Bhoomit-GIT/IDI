@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDI CRM SOFTWARE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .header {
+            background-color: #1E3267;
+            color: white;
+            position: fixed;
+            top: 30;
+            left: 10;
+            text-align: center;
+        }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 10;
+            left: 0;
+            background-color: #ffffff;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: rgb(145, 151, 179);
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #1E3267;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>IDI SOFTWARE</h1>
+    </div>
+    <div class="sidebar">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#quotation">Quotation</a>
+        <a href="#billing">Billing</a>
+        <a href="#Products">Products</a>
+        <a href="#Order">Order</a>
+    </div>
+    <div class="main-content">
+        <div id="dashboard" class="card">
+            <h2>Dashboard</h2>
+            <p>Welcome to the CRM dashboard. Here you can see an overview of your activities.</p>
+        </div>
+        <div id="quotation" class="card">
+            <h2>Quotation</h2>
+            <p>Manage your quotations here. Create, edit, and send quotations to your clients.</p>
+        </div>
+        <div id="billing" class="card">
+            <h2>Billing</h2>
+            <p>Handle all your billing needs. Generate invoices and track payments.</p>
+        </div>
+        
+        <div id="order" class="card">
+            <h2>Order</h2>
+            <p>Manage your orders here. Create, edit, and track orders from your clients.</p>
+            </div> 
+        <div id="products" class="card">
+            <h2>Products</h2>
+            <p>Manage your products here. Create, edit, and track products from your clients.</p>
+            </div>
+     </div>
+    <script>
+    
+            function manageCustomers() {
+                // Simulate navigation to Customer Management page
+                document.querySelector('.container').innerHTML = `
+                    <h2>Customer Management</h2>
+                    <p>Here you can add, edit, and delete customer information.</p>
+                    <div>
+                        <input type="text" id="customerName" placeholder="Customer Name">
+                        <input type="email" id="customerEmail" placeholder="Customer Email">
+                        <button onclick="addCustomer()">Add Customer</button>
+                    </div>
+                    <ul id="customerList"></ul>
+                    <button onclick="goBack()">Back to Main Menu</button>
+                `;
+            }
+    
+            function trackSales() {
+                // Simulate navigation to Sales Tracking page
+                document.querySelector('.container').innerHTML = `
+                    <h2>Sales Tracking</h2>
+                    <p>Monitor your sales performance here.</p>
+                    <div>
+                        <input type="text" id="productName" placeholder="Product Name">
+                        <input type="number" id="saleAmount" placeholder="Sale Amount">
+                        <button onclick="addSale()">Add Sale</button>
+                    </div>
+                    <ul id="salesList"></ul>
+                    <button onclick="goBack()">Back to Main Menu</button>
+                `;
+            }
+    
+            function generateReports() {
+                // Simulate navigation to Reports page
+                document.querySelector('.container').innerHTML = `
+                    <h2>Reports</h2>
+                    <p>Generate and view reports here.</p>
+                    <button onclick="generateSalesReport()">Generate Sales Report</button>
+                    <button onclick="generateCustomerReport()">Generate Customer Report</button>
+                    <div id="reportContent"></div>
+                    <button onclick="goBack()">Back to Main Menu</button>
+                `;
+            }
+    
+            function goBack() {
+                // Reload the page to go back to the main menu
+                location.reload();
+            }
+    
+            function addCustomer() {
+                const name = document.getElementById('customerName').value;
+                const email = document.getElementById('customerEmail').value;
+                if (name && email) {
+                    const li = document.createElement('li');
+                    li.textContent = ${name} (${email});
+                    document.getElementById('customerList').appendChild(li);
+                    document.getElementById('customerName').value = '';
+                    document.getElementById('customerEmail').value = '';
+                }
+            }
+    
+            function addSale() {
+                const product = document.getElementById('productName').value;
+                const amount = document.getElementById('saleAmount').value;
+                if (product && amount) {
+                    const li = document.createElement('li');
+                    li.textContent = ${product}: $${amount};
+                    document.getElementById('salesList').appendChild(li);
+                    document.getElementById('productName').value = '';
+                    document.getElementById('saleAmount').value = '';
+                }
+            }
+    
+            function generateSalesReport() {
+                document.getElementById('reportContent').innerHTML = `
+                    <h3>Sales Report</h3>
+                    <p>Total Sales: $10,000</p>
+                    <p>Top Product: Widget A</p>
+                    <p>Sales Growth: 15%</p>
+                `;
+            }
+    
+            function generateCustomerReport() {
+                document.getElementById('reportContent').innerHTML = `
+                    <h3>Customer Report</h3>
+                    <p>Total Customers: 100</p>
+                    <p>New Customers This Month: 15</p>
+                    <p>Customer Retention Rate: 85%</p>
+                `;
+            }
+        </script>
+    
+</body>
+</html>
