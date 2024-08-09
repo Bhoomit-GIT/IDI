@@ -18,6 +18,14 @@
             color: #1E3267;
             text-align: left;
         }
+        #dateTime {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #333;
+        }
         .sidebar {
             height: 100%;
             width: 200px;
@@ -26,14 +34,13 @@
             left: 0;
             background-color: #ffffff;
         }
-        .sidebar img {
+        .sidebar #logo {
             padding-top: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             padding-left: 20px;
             width: 150px;
-
+            background-color: ;
         }
-
         .sidebar a {
             padding: 10px 15px;
             text-decoration: none;
@@ -43,6 +50,14 @@
         }
         .sidebar a:hover {
             background-color: #1E3267;
+            color: #ffffff;
+        }
+        .sidebar #dp {
+             position: absolute;
+             padding-left: 20px;
+             bottom: 5%;
+             width: 25%;
+            
         }
         .main-content {
             margin-left: 220px;
@@ -52,21 +67,23 @@
             background-color: #ffffff;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 4px #ffffff;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Hello Sachin Meshram </h1>
+        <h1>Hello Sachin Meshram
+        <div id="dateTime"></div> 
+        </h1> 
     </div>
     <div class="sidebar">
-        <img src="/Frontend Img/IDI LOGO BG Removed RGB.png">
+        <img id="logo" src="/Frontend Img/IDI LOGO BG Removed RGB.png">
         <a href="#dashboard">Dashboard</a>
         <a href="#quotation">Quotation</a>
         <a href="#billing">Billing</a>
         <a href="#Products">Products</a>
         <a href="#Order">Order</a>
+        <img id="dp" src="/Frontend Img/dp.png">
     </div>
     <div class="main-content">
         <div id="dashboard" class="card">
@@ -91,97 +108,18 @@
             <p>Manage your products here. Create, edit, and track products from your clients.</p>
             </div>
      </div>
-    <script>
-    
-            function manageCustomers() {
-                // Simulate navigation to Customer Management page
-                document.querySelector('.container').innerHTML = `
-                    <h2>Customer Management</h2>
-                    <p>Here you can add, edit, and delete customer information.</p>
-                    <div>
-                        <input type="text" id="customerName" placeholder="Customer Name">
-                        <input type="email" id="customerEmail" placeholder="Customer Email">
-                        <button onclick="addCustomer()">Add Customer</button>
-                    </div>
-                    <ul id="customerList"></ul>
-                    <button onclick="goBack()">Back to Main Menu</button>
-                `;
-            }
-    
-            function trackSales() {
-                // Simulate navigation to Sales Tracking page
-                document.querySelector('.container').innerHTML = `
-                    <h2>Sales Tracking</h2>
-                    <p>Monitor your sales performance here.</p>
-                    <div>
-                        <input type="text" id="productName" placeholder="Product Name">
-                        <input type="number" id="saleAmount" placeholder="Sale Amount">
-                        <button onclick="addSale()">Add Sale</button>
-                    </div>
-                    <ul id="salesList"></ul>
-                    <button onclick="goBack()">Back to Main Menu</button>
-                `;
-            }
-    
-            function generateReports() {
-                // Simulate navigation to Reports page
-                document.querySelector('.container').innerHTML = `
-                    <h2>Reports</h2>
-                    <p>Generate and view reports here.</p>
-                    <button onclick="generateSalesReport()">Generate Sales Report</button>
-                    <button onclick="generateCustomerReport()">Generate Customer Report</button>
-                    <div id="reportContent"></div>
-                    <button onclick="goBack()">Back to Main Menu</button>
-                `;
-            }
-    
-            function goBack() {
-                // Reload the page to go back to the main menu
-                location.reload();
-            }
-    
-            function addCustomer() {
-                const name = document.getElementById('customerName').value;
-                const email = document.getElementById('customerEmail').value;
-                if (name && email) {
-                    const li = document.createElement('li');
-                    li.textContent = ${name} (${email});
-                    document.getElementById('customerList').appendChild(li);
-                    document.getElementById('customerName').value = '';
-                    document.getElementById('customerEmail').value = '';
-                }
-            }
-    
-            function addSale() {
-                const product = document.getElementById('productName').value;
-                const amount = document.getElementById('saleAmount').value;
-                if (product && amount) {
-                    const li = document.createElement('li');
-                    li.textContent = ${product}: $${amount};
-                    document.getElementById('salesList').appendChild(li);
-                    document.getElementById('productName').value = '';
-                    document.getElementById('saleAmount').value = '';
-                }
-            }
-    
-            function generateSalesReport() {
-                document.getElementById('reportContent').innerHTML = `
-                    <h3>Sales Report</h3>
-                    <p>Total Sales: $10,000</p>
-                    <p>Top Product: Widget A</p>
-                    <p>Sales Growth: 15%</p>
-                `;
-            }
-    
-            function generateCustomerReport() {
-                document.getElementById('reportContent').innerHTML = `
-                    <h3>Customer Report</h3>
-                    <p>Total Customers: 100</p>
-                    <p>New Customers This Month: 15</p>
-                    <p>Customer Retention Rate: 85%</p>
-                `;
-            }
-        </script>
+     <script>
+     function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString(); 
+            const time = now.toLocaleTimeString(); 
+            document.getElementById('dateTime').innerHTML = ${date} ${time};
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); 
+    </script>
+
     
 >>>>>>> 1066aea7d43f5f221f1c5d59946a083dcb38a630
 </body>
